@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>メンバー一覧</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen p-8">
+
+ 
+  <div class="max-w-5xl mx-auto mb-10 text-center">
+    <h1 class="text-3xl font-bold text-gray-800">プロジェクトメンバー一覧</h1>
+    <p class="text-gray-600 mt-2">JavaScriptのforEachで生成しています</p>
+  </div>
+
+  
+  <div id="card-container" class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+   
+  </div>
+
+  <script>
+  
+    const members = [
+      {
+        name: "ゆうま",
+        role: "代表",
+        comment: "チーム全体をまとめ、プロジェクトを牽引します！"
+      },
+      {
+        name: "青木康裕",
+        role: "副代表",
+        comment: "開発の進行とチームのサポートを担当します。"
+      },
+      {
+        name: "あやね",
+        role: "会計",
+        comment: "予算の管理と備品の調達はお任せください。"
+      },
+      {
+        name: "くらら",
+        role: "書記",
+        comment: "ミーティングの議事録や資料作成を行います。"
+      },
+      {
+        name: "小出広大",
+        role: "開発メンバー",
+        comment: "ペアワークを通じてフロントエンドの実装を進めます！"
+      }
+    ];
+
+   
+    const container = document.getElementById("card-container");
+
+    
+    members.forEach(function(member) {
+     
+      const cardHTML = `
+        <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+          <div class="border-b pb-4 mb-4">
+            <p class="text-sm text-blue-600 font-semibold mb-1">${member.role}</p>
+            <h2 class="text-xl font-bold text-gray-800">${member.name}</h2>
+          </div>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            ${member.comment}
+          </p>
+        </div>
+      `;
+
+     
+      container.innerHTML += cardHTML;
+    });
+  </script>
+
+</body>
+</html>
